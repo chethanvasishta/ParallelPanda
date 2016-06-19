@@ -16,6 +16,12 @@ public:
 	Error PandaTestRun();
 	Error PandaFinish();
 	bool MoreSchedules();
+
+private:
+	Error Panda::LoadModule(std::string moduleName, HMODULE* moduleHandlePtr);
+	Error Panda::ShimWrappers(HMODULE moduleHandlePtr);
+	Error Panda::LoadProcAddress(HMODULE hModule, FARPROC* procPtr);
+
 private:
 	HMODULE m_targetModule;
 	FARPROC m_testRunProc;
